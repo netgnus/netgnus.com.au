@@ -84,6 +84,8 @@ section { position: relative; z-index: 1; }
 .service-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 12px; }
 .service-card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
 .service-num { position: absolute; top: 20px; right: 24px; font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(0,229,255,0.2); }
+.service-card-wide { grid-column: 1 / -1; }
+.service-card-wide p { max-width: 720px; }
 
 /* ABOUT */
 #about { padding: 120px 60px; max-width: 1280px; margin: 0 auto; }
@@ -245,6 +247,7 @@ footer p { font-size: 13px; color: var(--muted); font-family: 'Space Mono', mono
     <div class="service-card reveal" style="transition-delay:0.1s"><span class="service-num">04</span><div class="service-icon">☁️</div><h3>Cloud &amp; Backup Solutions</h3><p>Microsoft 365, Google Workspace, automated cloud backups, and data recovery solutions for homes and small businesses.</p></div>
     <div class="service-card reveal" style="transition-delay:0.2s"><span class="service-num">05</span><div class="service-icon">🔧</div><h3>Remote Support</h3><p>Fast, secure remote assistance — we connect to your device and resolve issues without you needing to leave your home or office.</p></div>
     <div class="service-card reveal" style="transition-delay:0.3s"><span class="service-num">06</span><div class="service-icon">🏢</div><h3>Business IT Management</h3><p>Ongoing managed IT services, hardware procurement, server maintenance, and staff tech support for SMBs across Australia.</p></div>
+    <div class="service-card service-card-wide reveal" style="transition-delay:0.2s"><span class="service-num">07</span><div class="service-icon">🏠</div><h3>Smart Home &amp; Automation</h3><p>Home Assistant setup and tuning, smart lighting, climate and security automation, voice assistant integration, and device troubleshooting — we make your smart home actually work together, reliably and privately.</p></div>
   </div>
 </section>
 
@@ -257,7 +260,7 @@ footer p { font-size: 13px; color: var(--muted); font-family: 'Space Mono', mono
         <div class="about-metric-label">Years of hands-on IT experience</div>
         <div class="about-card-badges">
           <span class="badge-chip">Windows</span><span class="badge-chip">macOS</span><span class="badge-chip">Linux</span>
-          <span class="badge-chip">Azure</span><span class="badge-chip">Microsoft 365</span><span class="badge-chip">Networking</span><span class="badge-chip">Cybersecurity</span>
+          <span class="badge-chip">Azure</span><span class="badge-chip">Microsoft 365</span><span class="badge-chip">Networking</span><span class="badge-chip">Cybersecurity</span><span class="badge-chip">Home Assistant</span>
         </div>
       </div>
       <div class="about-card-float">
@@ -327,6 +330,7 @@ footer p { font-size: 13px; color: var(--muted); font-family: 'Space Mono', mono
             <option>Cloud &amp; Backup</option>
             <option>Remote Support</option>
             <option>Business IT Management</option>
+            <option>Smart Home &amp; Automation</option>
             <option>General Enquiry</option>
           </select>
         </div>
