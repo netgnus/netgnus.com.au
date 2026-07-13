@@ -308,15 +308,18 @@ footer p { font-size: 13px; color: var(--muted); font-family: 'Space Mono', mono
     </div>
     <div class="contact-form-wrap">
       <h3>Send a Message</h3>
-      <form id="contactForm" onsubmit="handleSubmit(event)">
+      <form id="contactForm" action="https://formsubmit.co/ajax/netgnus@gmail.com" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="_subject" value="New enquiry from netgnus.com.au">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <div class="form-row">
-          <div class="fg"><label>First Name</label><input type="text" placeholder="John" required></div>
-          <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+          <div class="fg"><label>First Name</label><input type="text" name="First Name" placeholder="John" required></div>
+          <div class="fg"><label>Last Name</label><input type="text" name="Last Name" placeholder="Smith" required></div>
         </div>
-        <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com" required></div>
+        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="john@example.com" required></div>
         <div class="fg">
           <label>Service Needed</label>
-          <select>
+          <select name="Service Needed">
             <option value="" disabled selected>Select a service…</option>
             <option>PC / Laptop Repair</option>
             <option>Networking &amp; Wi-Fi</option>
@@ -327,7 +330,7 @@ footer p { font-size: 13px; color: var(--muted); font-family: 'Space Mono', mono
             <option>General Enquiry</option>
           </select>
         </div>
-        <div class="fg"><label>Message</label><textarea placeholder="Describe your issue or what you need help with…"></textarea></div>
+        <div class="fg"><label>Message</label><textarea name="Message" placeholder="Describe your issue or what you need help with…" required></textarea></div>
         <div class="form-submit">
           <button type="submit" class="submit-btn">Send Message</button>
           <span class="form-note">We'll reply within 2 hours.</span>
@@ -372,7 +375,16 @@ footer p { font-size: 13px; color: var(--muted); font-family: 'Space Mono', mono
     sections.forEach(s => { if(window.scrollY >= s.offsetTop-100) current=s.getAttribute('id'); });
     navLinks.forEach(a => { a.classList.remove('active'); if(a.getAttribute('href')==='#'+current) a.classList.add('active'); });
   });
-  function handleSubmit(e){ e.preventDefault(); document.getElementById('contactForm').style.display='none'; document.getElementById('successMsg').style.display='block'; }
+  function handleSubmit(e){
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const btn = form.querySelector('.submit-btn');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(r => r.json())
+      .then(() => { form.style.display = 'none'; document.getElementById('successMsg').style.display = 'block'; })
+      .catch(() => { btn.disabled = false; btn.textContent = 'Send Message'; alert('Something went wrong — please email support@netgnus.com.au directly.'); });
+  }
 </script>
 </body>
 </html>
