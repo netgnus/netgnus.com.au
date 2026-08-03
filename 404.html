@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Netgnus Computing</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --bg: #080c10; --bg-2: #0d1520; --bg-3: #111d2e; --cyan: #00e5ff; --green: #00ff88; --text: #e2eaf4; --muted: #4a6080; --border: rgba(0,229,255,0.12); }
+body { font-family: 'Space Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.terminal { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 0 60px rgba(0,229,255,0.06), 0 40px 80px rgba(0,0,0,0.4); width: 100%; max-width: 560px; }
+.terminal-bar { background: var(--bg-3); padding: 12px 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
+.t-dot { width: 10px; height: 10px; border-radius: 50%; }
+.t-dot.red { background: #ff5f57; } .t-dot.yellow { background: #febc2e; } .t-dot.green { background: #28c840; }
+.terminal-title { font-size: 11px; color: var(--muted); margin-left: 8px; }
+.terminal-body { padding: 28px; font-size: 13px; line-height: 2; }
+.t-prompt { color: var(--cyan); }
+.t-err { color: #ff5f57; }
+.t-out { color: var(--muted); padding-left: 20px; }
+h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 56px; color: var(--cyan); line-height: 1; margin: 16px 0 4px; }
+a.btn { display: inline-block; margin-top: 20px; background: var(--cyan); color: var(--bg); padding: 12px 28px; border-radius: 6px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; }
+a.btn:hover { opacity: 0.85; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="terminal-bar">
+    <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+    <span class="terminal-title">netgnus@support: ~</span>
+  </div>
+  <div class="terminal-body">
+    <div><span class="t-prompt">$</span> locate requested-page</div>
+    <div class="t-out t-err">ERROR 404: path not found</div>
+    <h1>404</h1>
+    <div class="t-out">The page you're after doesn't exist or has moved.</div>
+    <a class="btn" href="/">Back to Home</a>
+  </div>
+</div>
+</body>
+</html>
